@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Estados</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2>Información de Estados<h2/>
+            <br/>
+            <a th:href="@{/}">Atrás</a>
+            <br/>
+            <br/>
+            <form th:action="@{/salvarEstado}"
+                  method="POST"
+                  th:object="${estado}">
+                <input type="hidden" name="idEstado" th:field="*{idEstado}" />
+                <label for="pais">País</label><br/>
+                <input type="text" name="pais" th:field="*{pais}" /><br/>
+                <label for="capital">Capital</label><br/>
+                <input type="text" name="capital" th:field="*{capital}" /><br/>
+                <label for="poblacion">Población</label><br/>
+                <input type="text" name="poblacion" th:field="*{poblacion}" /><br/>
+                <label for="costas">Costas</label><br/>
+                <input type="number" name="costas" th:field="*{costas}" /><br/><br/>
+                <input type="submit" name="Salvar" value="Salvar" />
+            </form>
+    </body>
+</html>

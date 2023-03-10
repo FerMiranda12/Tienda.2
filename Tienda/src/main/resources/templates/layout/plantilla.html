@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:fragment="header" class="header">
+            <nav class="nav">
+                <a  th:ref="@{/}" class="logo nav-link">TechShop</a>
+                <ul class="nav-menu-item">
+                    <li class="nav-menu-item">
+                        <a th:href="@{/cliente/listado}" class="nav-menu-link">Clientes</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a th:href="@{/categoria/listado}" class="nav-menu-link">Categorias</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a th:href="@{/articulo/listado}" class="nav-menu-link">Articulos</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <footer th:fragmet="footer" class="footer">
+            <p>&COPY; Derechos Reservados 2023</p>
+        </footer>
+    </body>
+</html>
