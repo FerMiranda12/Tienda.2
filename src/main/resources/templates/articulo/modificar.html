@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">   
+    <head>
+        <title>TechShop</title>    
+        <meta charset="UTF-8">      
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/> 
+    </head> 
+    <body>
+        <header th:href="layout/plantilla :: header"/>
+        <div class="contenido">
+            <h2 th:text="#{cliente.datos}">Datos del cliente<h2/>
+                <br/>
+                <a th:href="@{/articulo/listado}" th:text="#{accion.atras}">Atrás</a>
+                <br/>
+                <br/>
+                <form th:action="@{/articulos/guardar}" method="post" th:object="${articulo}">
+                    <input type="hidden" name="idArticulo" th:field="*{idArticulo}" />
+                    <label for="categoria" th:text="#{articulo.categoria}">Categoria</label><br/>
+                    <input type="text" name="categoria" th:field="*{categoria}" /><br/>
+                    <select th:field="*{idCategoria}">
+                        <option th:each="categoria: *{categorias}"
+                                th:value="${categoria.idCategoria}"
+                                th:text="${categoria.descripcion}"/>
+                    </select>
+                    <br/>
+                    <label for="descripcion" th:text="#{articulo.descripcion}">Descripcion</label><br/>
+                    <input type="text" name="descripcion" th:field="*{descripcion}" /><br/>
+                    <label for="detalle" th:text="#{articulo.detalle}">Detalle</label><br/>
+                    <input type="text" name="detalle" th:field="*{detalle}" /><br/>
+                    <label for="precio" th:text="#{articulo.precio}">Precio</label><br/>
+                    <input type="number" name="precio" th:field="*{precio}" /><br/><br/>
+                    <label for="existencias" th:text="#{articulo.existencias}">Existencias:</label><br/>
+                    <input type="number" name="existencias" th:field="*{existencias}" /><br/><br/>
+                    <label for="activo" th:text="#{articulo.activo}">Activo: </label><br/>
+                    <input type="checkbox" name="activo" th:field="*{activo}" /><br/><br/>
+                    <input type="submit" name="guardar" th:value="#{accion.guardar}"/>
+                </form>
+        </div>
+        <footer th:replace="layaout/plantilla :: footer"/>
+    </body>
+</html>
+

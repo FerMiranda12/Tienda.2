@@ -1,0 +1,39 @@
+!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">   
+    <head>
+        <title>TechShop</title>    
+        <meta charset="UTF-8">      
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/> 
+    </head>  
+    <body>
+        <header th:replace="layout/plantilla :: header"/>    
+        <div class="contenido">     
+            
+            <h2 th:text="#{cliente.titulo}">Listado de clientes</h2>       
+            <a th:href="@{/categoria/nueva}" th:text="#{categoria.nueva}">Nueva Categoria</a>     
+            <br/>
+            <div th:if="${categorias != null and !categorias.empty}">           
+                <table border="1">          
+                    <thead>  
+                        <tr
+                    <th th:text="#{categoria.descripcion}">Descripcion</th>                  
+                    <th th:text="#{accion.activa}">Activa</th> 
+                        </tr>
+                    </thead>           
+                    <tbody>
+                        <tr th:each="categiria : ${categirias}">       
+                            <td th:text="${categiria.descripcion}"></td>       
+                            <td><input type="checkbox" name="activa" th:checked="${categiria.activo}" disabled="true"></td>            
+                            <td><a th:href="@{/categiria/modificar/} + ${categirias.idCategorias}" th:text="#{accion.actualizar}">Modificar</a></td>              
+                            <td><a th:href="@{/categiria/eliminar/} + ${categirias.idCategorias}" th:text="#{accion.eliminar}">Eliminar</a></td>           
+                        </tr>             
+                    </tbody>
+                </table>        
+            </div>        
+            <div th:if="${categorias == null or categorias.empty}">       
+                <p th:text="#{cliente.no_mostrar}">No hay categorias para mostar...</p>
+            </div>     
+        </div>     
+        <footer th:replace="layout/plantilla :: footer" />   
+    </body>
+</html>
