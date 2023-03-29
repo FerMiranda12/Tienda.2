@@ -44,7 +44,7 @@ public class ArticuloController {
         return "redirect:/articulo/listado";
     }
     
-    @GetMapping("/articulo/modificar/{idArticulo")
+    @GetMapping("/articulo/modificar/{idArticulo}")
     
     public String modificarArticulo(Articulo Articulo, Model model) {
         var categorias = categoriaService.getCategorias(true);
