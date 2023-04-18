@@ -5,12 +5,12 @@
  }
 
  body{
-     font-family: sens-serif;
+     font-family: arial;
      padding: 45px 20px 0;
  }
 
  .header{
-     background-color: navy;
+     background-color: burlywood;
      height: 12%;
      position: fixed;
      top: 0;
@@ -26,7 +26,7 @@
  }
 
  .nav-link{
-     color: white;
+     color: beige;
      text-decoration: none;
  }
 
@@ -57,14 +57,14 @@
 
  .nav-menu-link:hover{
      font-size: 22px;
-     background-color: lightcoral;
+     background-color: blanchedalmond;
      transition: 1s;    
  }
  
  .footer {
-     background-color: black;
-     text-align: center;
-     color: white;
+     background-color: brown;
+     text-align: left;
+     color: beige;
      height: 20px;
      position: fixed;
      bottom: 0;
@@ -73,7 +73,7 @@
  }
  
  .contenido{
-     background-color: lavender;
+     background-color: beige;
      position: fixed;
      top: 80px;
      bottom: 20px;

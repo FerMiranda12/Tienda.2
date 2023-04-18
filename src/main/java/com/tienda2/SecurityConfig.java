@@ -20,7 +20,7 @@ public class SecurityConfig {
 
     @Autowired
     public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
-        build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+        build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder()); //agarra el password de BD y lo encripta
     }
 
     //@Bean
@@ -50,7 +50,7 @@ public class SecurityConfig {
                         "/index",
                         "/errores/**",
                         "/error",
-                        "/webjars/**").permitAll()
+                        "/webjars/**").permitAll() //permite todas esas vistas a todos los usuarios
                 .requestMatchers(
                         "/articulo/nuevo",
                         "/articulo/guardar",
@@ -64,19 +64,23 @@ public class SecurityConfig {
                         "/cliente/guardar",
                         "/cliente/modificar/**",
                         "/cliente/eliminar/**")
-                .hasRole("ADMIN")
+                .hasRole("ADMIN") //permite todas esas vistas a solo admin
                 .requestMatchers(
                         "/articulo/listado",
                         "/categoria/listado",
                         "/cliente/listado")
-                .hasAnyRole("ADMIN", "VENDEDOR")
+                .hasAnyRole("ADMIN", "VENDEDOR")  //permite todas esas vistas a todos los user
+                .requestMatchers(
+                        "/carrito/agregar/'' ",
+                        "/carrito/listado/'' ")
+                .hasRole("USER")
                 )
                 .formLogin((form) -> form
                 .loginPage("/login")
                 .permitAll())
                 .logout((logout) -> logout.permitAll())
-                .exceptionHandling()
-                .accessDeniedPage("/errores/403");
+                .exceptionHandling() //esto es para que si alguien que no tiene permisos sobre la vista que apreto le salga error
+                .accessDeniedPage("/errores/403");//lo mismo de arriba, lo del error, me redirigue a errores/403
         return http.build();
     }
 }

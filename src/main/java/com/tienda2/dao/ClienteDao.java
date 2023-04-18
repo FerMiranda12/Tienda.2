@@ -2,6 +2,7 @@
 package com.tienda2.dao;
 
 import com.tienda2.domain.Cliente;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -10,4 +11,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface ClienteDao extends CrudRepository<Cliente, Long> {
     
+    List<Cliente> findByCorreo (String correo);
 }

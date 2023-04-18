@@ -18,7 +18,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav" sec:authorize="hasRole('Role_VENDEDOR')">
+                        <ul class="navbar-nav" sec:authorize="hasRole('Role_VENDEDOR')"> //para mostrar solo como un perfil que se ponga
                             <li class="nav-item px-2">
                                 <a th:href="@{/cliente/listado}" class="nav-menu-link nav-link"
                                    th:text="#{plantilla.clientes}">Clientes</a>
@@ -31,11 +31,20 @@
                                 <a th:href="@{/articulo/listado}" "nav-menu-link nav-link"
                                    th:text="#{plantilla.articulos}">Articulos</a>
                             </li>
-                        </ul> 
+                    /    </ul> 
                         <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto"> 
-                            <li class="nav-item mr-3"> <a href="#" class="nav-link"> <i class="fas fa-user"></i> 
+                            <li class="nav-item mr-3"> 
+                                <a href="#" class="nav-link"> 
+                                    <i class="fas fa-user"></i> 
                                     <span th:text="#{plantilla.bienvenido}">Bievenido:</span> 
-                                    <span sec:authentication="name">Usuario</span> 
+                                    <span sec:authentication="name">Usuario</span> ////////
+                                </a> 
+                            </li> 
+                             <li class="nav-item mr-3"> 
+                                 <a href="#" class="nav-link"> 
+                                    
+                                    <span th:text="#{plantilla.troles}">Bievenido:</span> 
+                                    <span sec:authentication="principal.authorities">XXX</span> ////////
                                 </a> 
                             </li> 
                             <li class="nav-item"> 
@@ -43,11 +52,12 @@
                                     <a href="#" onclick="this.parentNode.submit();" class="nav-link"> 
                                         <i class="fas fa-user-times"></i> [[#{plantilla.logout}]] 
                                     </a> 
-                                </form> 
+                                </form> ///
                             </li> 
                         </ul>
                     </div>
                 </div>
+                
             </nav>
             <section id="main-header" class="py-2 bg-success text-white">                
                 <div class="container">                    

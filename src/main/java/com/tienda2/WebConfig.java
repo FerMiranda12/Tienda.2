@@ -33,8 +33,8 @@ public class WebConfig implements WebMvcConfigurer {
     }
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/")
-                .setViewName("index");
+        registry.addViewController("/") // cuando me pidan esta vista
+                .setViewName("index"); // esta es la que hay que mostrar y asi con cada vista que quiera que se vea 
         registry.addViewController("/index")
                 .setViewName("index");
         registry.addViewController("/login")

@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
  public class ArticuloServicelmpl implements ArticuloService {
 
      @Autowired
-     ArticuloDao articuloDao;
+    ArticuloDao articuloDao;
 
     @Override
     @Transactional(readOnly = true) //para solo hacer lecturas

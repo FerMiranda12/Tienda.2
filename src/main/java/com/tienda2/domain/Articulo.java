@@ -18,6 +18,7 @@ public class Articulo {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_articulo")
     private Long idArticulo;
     private Long idCategoria;
     private String descripcion;
@@ -25,16 +26,20 @@ public class Articulo {
     private double precio;
     private int existencia;
     private boolean activo;
+    private String rutaImagen;
 
     public Articulo() {
     }
 
-    public Articulo(Long idCategoria, String descripcion, String detalle, double precio, int existencia, boolean activo) {
+    public Articulo(Long idCategoria, String descripcion, String detalle, double precio, int existencia, boolean activo, String rutaImagen) {
         this.idCategoria = idCategoria;
         this.descripcion = descripcion;
         this.detalle = detalle;
         this.precio = precio;
         this.existencia = existencia;
         this.activo = activo;
+        this.rutaImagen = rutaImagen;
     }
+
+    
 }
